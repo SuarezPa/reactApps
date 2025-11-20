@@ -55,6 +55,21 @@ Pequeña aplicación creada con Vite + React que muestra personajes de Rick & Mo
 - Node.js (versión LTS recomendada)
 - npm o yarn
 
+## GitHub Actions — validación del insumo
+
+He revisado el workflow de CodeQL en [`.github/workflows/codeql.yml`](.github/workflows/codeql.yml). Resumen de la validación:
+
+- Archivo: [`.github/workflows/codeql.yml`](.github/workflows/codeql.yml).
+- Objetivo: escaneo automático CodeQL para JavaScript/TypeScript. (matrix: `javascript-typescript`, `build-mode: none`).
+- Programación: ejecuta en pushes y PRs a `main` y con cron semanal (`'31 7 * * 5'`).
+- Permisos: `security-events: write`, `packages: read`, `actions: read`, `contents: read` — adecuados para análisis.
+- Pasos presentes: checkout, init (`github/codeql-action/init@v4`), paso condicional para builds manuales y `github/codeql-action/analyze@v4`.
+- Observaciones / recomendaciones:
+  - Si tu proyecto necesita pasos de build para producir artefactos (ej. compilación o instalación que CodeQL requiere), cambia `build-mode` a `manual` y añade el paso de build (por ejemplo `npm ci && npm run build`) en el bloque de "Run manual build steps".
+  - Si quieres ampliar el alcance, añade `queries:` o packs personalizados en la acción `init`.
+  - El workflow actual no requiere `setup-node`, pero puedes añadir `actions/setup-node@v4` si tu análisis necesita instalar dependencias para un build manual.
+  - Revisa que la rama principal sea `main` en tu repo; si tu rama por defecto es otra, actualiza el trigger.
+
 ## Instalación
 1. Abrir la carpeta del proyecto:
    cd appRick&Morthy
