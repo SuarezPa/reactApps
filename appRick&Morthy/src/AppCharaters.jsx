@@ -1,39 +1,41 @@
-import './App.css'
-import Card from './components/Card.jsx'
-import { consultClients } from './services/http-service.js'
-import { useState, useEffect } from 'react'
+import "./App.css";
+import Card from "./components/Card.jsx";
+import { consultClients } from "./services/http-service.js";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    let cancelled = false
+    let cancelled = false;
     const fetchProducts = async () => {
-      setLoading(true)
-      setError(null)
+      setLoading(true);
+      setError(null);
       try {
         const data = await consultClients();
-        if (!cancelled) setProducts(data)
+        if (!cancelled) setProducts(data);
       } catch (err) {
-        console.error('Error fetching products:', err);
-        if (!cancelled) setError(err)
+        console.error("Error fetching products:", err);
+        if (!cancelled) setError(err);
       } finally {
-        if (!cancelled) setLoading(false)
+        if (!cancelled) setLoading(false);
       }
-    }
+    };
 
-    fetchProducts()
-    return () => { cancelled = true }
-  }, [])
+    fetchProducts();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
-  if (loading) return <p>Cargando...</p>
-  if (error) return <p>Error al cargar productos.</p>
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error al cargar productos.</p>;
 
   return (
     <>
-      <h1>Name Cliente.</h1>
+      {/* <h1>Name Cliente.</h1> */}
       {products.map((product) => (
         <Card
           key={product.id}
@@ -44,7 +46,7 @@ function App() {
         />
       ))}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

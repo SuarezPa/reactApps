@@ -1,0 +1,83 @@
+.header {
+  grid-area: header; /* empata con linea 6. */
+  background-color: var(--primary-color);
+}
+
+header {
+  display: flex; /* flex en grid */
+  justify-content: space-between;
+}
+
+.logo-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.logo-section > h1 {
+  color: #000000;
+  background-color: var(--accent-color);
+  /* padding: 2px; */
+  margin: 0;
+  border-radius: 8px;
+}
+
+.logo-section > img {
+  width: 50px;
+  height: 50px;
+}
+
+.menu-section {
+  /* border: solid 2px #000000; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  margin-right: 18px;
+  margin-top: 8px;
+}
+
+.menu-section ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.menu-section a {
+  text-decoration: none; /* quita subrayado */
+  margin: 0;
+  padding: 0;
+}
+
+.menu-section a:hover {
+  color: var(--accent-color);
+}
+
+.filters {
+  grid-area: filters; /* empata con linea 7. */
+  /*background-color: var(--primary-color);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--accent-color);
+  border-left: solid 8px var(--primary-color);
+  border-bottom: solid 8px var(--primary-color);
+  border-top: solid 1px var(--primary-letter-color);
+  border-right: solid 1px var(--primary-letter-color);
+}
+
+.filters h1,
+p,
+a {
+  font-size: 18px;
+  color: var(--primary-letter-color);
+  margin: 10px;
+}
