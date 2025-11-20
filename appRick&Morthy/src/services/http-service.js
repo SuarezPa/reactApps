@@ -1,10 +1,10 @@
-import { endPointCharacters } from "../constans.js";
-import axios from "axios";
+import { endPointCharacters } from '../constans.js';
+import axios from 'axios';
 
 export const consultClients = async () => {
   let config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     timeout: 5000,
   };

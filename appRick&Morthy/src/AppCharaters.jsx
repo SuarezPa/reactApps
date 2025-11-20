@@ -1,7 +1,7 @@
-import "./App.css";
-import Card from "./components/Card.jsx";
-import { consultClients } from "./services/http-service.js";
-import { useState, useEffect } from "react";
+import './App.css';
+import Card from './components/Card.jsx';
+import { consultClients } from './services/http-service.js';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ function App() {
         const data = await consultClients();
         if (!cancelled) setProducts(data);
       } catch (err) {
-        console.error("Error fetching products:", err);
+        console.error('Error fetching products:', err);
         if (!cancelled) setError(err);
       } finally {
         if (!cancelled) setLoading(false);

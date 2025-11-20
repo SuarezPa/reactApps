@@ -1,5 +1,5 @@
-import "./Header.css";
-import "../assets/menu_1000dp_000000_FILL0_wght400_GRAD0_opsz48.svg";
+import './Header.css';
+import '../assets/menu_1000dp_000000_FILL0_wght400_GRAD0_opsz48.svg';
 
 function Header(props) {
   const { title } = props;
