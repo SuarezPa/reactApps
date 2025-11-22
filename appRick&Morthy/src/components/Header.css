@@ -50,9 +50,9 @@ header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex: 1 1 auto;          /* puede crecer y encogerse */
+  flex: 1 1 auto; /* puede crecer y encogerse */
   justify-content: flex-end;
-  margin: 0;               /* quitar márgenes que rompen la alineación */
+  margin: 0; /* quitar márgenes que rompen la alineación */
   padding: 0;
 }
 
@@ -64,7 +64,7 @@ header {
   align-items: center;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;         /* permite que los items salten a nueva línea */
+  flex-wrap: wrap; /* permite que los items salten a nueva línea */
   justify-content: flex-end;
 }
 
@@ -74,12 +74,14 @@ header {
   color: inherit;
   padding: 6px 8px;
   border-radius: 6px;
-  transition: background .12s ease, color .12s ease;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease;
 }
 
 .menu-section a:hover {
   color: var(--accent-color);
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Media queries: apilar en pantallas pequeñas */
