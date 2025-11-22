@@ -9,8 +9,6 @@ export const consultClients = async () => {
     timeout: 5000,
   };
   let response = await axios.get(endPointCharacters, config);
-  const data = response.data.results ?? response.data; // adapta según tu API
-  // console.log('Respuesta de consultClients:');
-  // console.log(response.data);
+  const data = response.data.results ?? response.data;
   return data;
 };

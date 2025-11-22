@@ -7,7 +7,7 @@ function Header(props) {
     <div className="header">
       <header>
         <div className="logo-section">
-          <img src="../../public/vite.svg" alt=".logo MorthyApp" />
+          {/* <img src="../../public/vite.svg" alt=".logo MorthyApp" /> */}
           <h1>Rick&MorthyApp_</h1>
         </div>
         <div className="menu-section">
@@ -28,12 +28,12 @@ function Header(props) {
             </ul>
           </nav>
           <div className="button-menu">
-            <button>
+            {/* <figure>
               <img
-                src="../assets/menu_1000dp_000000_FILL0_wght400_GRAD0_opsz48.svg"
+                src="https://rickandmortyapi.com/api/character/avatar/19.jpeg"
                 alt="menu.svg"
               />
-            </button>
+            </figure> */}
           </div>
         </div>
       </header>
