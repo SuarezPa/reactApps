@@ -1,83 +1,121 @@
+/* ...existing code... */
 .header {
-  grid-area: header; /* empata con linea 6. */
+  grid-area: header;
   background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
 }
 
+/* header interno: contenedor flexible y responsivo */
 header {
-  display: flex; /* flex en grid */
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
+/* logo se mantiene su tamaño y no crece */
 .logo-section {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  flex-direction: row;
-  gap: 8px;
-  margin-left: 10px;
+  gap: 0.5rem;
+  flex: 0 0 auto; /* no ocupa espacio extra */
 }
 
-.logo-section > h1 {
-  color: #000000;
-  background-color: var(--accent-color);
-  /* padding: 2px; */
-  margin: 0;
-  border-radius: 8px;
-}
-
-.logo-section > img {
-  width: 50px;
-  height: 50px;
-}
-
-.menu-section {
-  /* border: solid 2px #000000; */
+/* logo: tamaño relativo para ser responsivo */
+/* .button-menu > figure img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  gap: 10px;
-  margin-right: 18px;
-  margin-top: 8px;
+  align-items: flex-end;
+  border-radius: 50%;
+} */
+
+/* título dentro del logo */
+.logo-section > h1 {
+  color: #000;
+  /* background-color: var(--accent-color); */
+  margin: 0;
+  /* border-radius: 6px; */
+  /* padding: 4px 8px; */
+  font-size: 1.8rem;
 }
 
+/* menu-section ocupa el espacio restante (o se ajusta) */
+.menu-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1 1 auto; /* puede crecer y encogerse */
+  justify-content: flex-end;
+  margin: 0; /* quitar márgenes que rompen la alineación */
+  padding: 0;
+}
+
+/* navegación: horizontal, permite wrap si no cabe */
 .menu-section ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  gap: 1rem;
   align-items: center;
-  flex-direction: row;
-  gap: 16px;
-}
-
-.menu-section a {
-  text-decoration: none; /* quita subrayado */
   margin: 0;
   padding: 0;
+  flex-wrap: wrap; /* permite que los items salten a nueva línea */
+  justify-content: flex-end;
+}
+
+/* enlaces */
+.menu-section a {
+  text-decoration: none;
+  color: inherit;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease;
 }
 
 .menu-section a:hover {
   color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.filters {
-  grid-area: filters; /* empata con linea 7. */
-  /*background-color: var(--primary-color);*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: var(--accent-color);
-  border-left: solid 8px var(--primary-color);
-  border-bottom: solid 8px var(--primary-color);
-  border-top: solid 1px var(--primary-letter-color);
-  border-right: solid 1px var(--primary-letter-color);
+/* Media queries: apilar en pantallas pequeñas */
+@media (max-width: 900px) {
+  header {
+    gap: 0.75rem;
+  }
+  .menu-section ul {
+    gap: 0.75rem;
+  }
+  .logo-section > h1 {
+    font-size: 0.95rem;
+  }
 }
 
-.filters h1,
-p,
-a {
-  font-size: 18px;
-  color: var(--primary-letter-color);
-  margin: 10px;
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .logo-section {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  .menu-section {
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  .menu-section ul {
+    justify-content: center;
+  }
+  .menu-section a {
+    padding: 8px 10px;
+  }
 }

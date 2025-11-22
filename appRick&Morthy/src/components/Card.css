@@ -1,10 +1,163 @@
+.card__section {
+  margin: 8px;
+  /* border: 1px solid #c22323; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+/* imagen ocupa todo el ancho de la card, recortando si hace falta */
+.card__image {
+  width: 100%;
+  /* preferible: mantiene proporción cuadrada y recorta con object-fit */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0; /* solo esquinas superiores redondeadas */
+  border: 0;
+  box-shadow: 0 6px 18px rgba(11, 37, 69, 0.06);
+}
+
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
+  align-items: center;
   gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 8px;
-  max-width: 10rem;
-  margin-top: 10px;
+  /* quitar padding superior para que la imagen llegue al borde */
+  padding: 0;
+  width: 100%;
+  margin-left: 20px;
+  max-width: 220px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(11, 37, 69, 0.08);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+  color: #0b2545;
+  margin: 0.5rem;
+  overflow: hidden;
+}
+
+.card__title {
+  margin: 0.5rem 0 0;
+}
+
+/* glow dinámico detrás de la card */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(11, 108, 240, 0.12),
+    transparent 20%
+  );
+  opacity: 0;
+  transition:
+    opacity 260ms ease,
+    transform 600ms linear;
+  pointer-events: none;
+}
+
+/* barra "shine" que se mueve sobre la imagen */
+.card::after {
+  content: '';
+  position: absolute;
+  left: -120%;
+  top: -10%;
+  width: 40%;
+  height: 120%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 420ms ease;
+  pointer-events: none;
+}
+
+/* Hover: elevate + rotate sutil + glow */
+.card:hover {
+  transform: translateY(-10px) scale(1.03) rotate(-0.4deg);
+  box-shadow: 0 22px 54px rgba(11, 37, 69, 0.18);
+}
+.card:hover::before {
+  opacity: 1;
+  transform: translateY(-6px);
+}
+.card:hover::after {
+  left: 120%;
+  transition: left 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* imagen ocupa todo el ancho y participa en la animación */
+.card__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+  border: 0;
+  box-shadow: 0 6px 18px rgba(11, 37, 69, 0.06);
+  transition:
+    transform 520ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 260ms ease;
+  transform-origin: center;
+}
+
+/* efecto parallax/zoom en la imagen */
+.card:hover .card__image {
+  transform: scale(1.06) translateY(-6px);
+  filter: brightness(1.03) saturate(1.06);
+}
+
+/* título y contenido */
+.card__title {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #0b2545;
+}
+
+/* pequeño efecto cuando se hace foco por teclado */
+.card:focus-within,
+.card:focus {
+  outline: 2px solid rgba(11, 108, 240, 0.12);
+  outline-offset: 4px;
+}
+
+/* soporte para movimiento del glow según puntero (JS opcional) */
+@media (hover: hover) and (pointer: fine) {
+  .card {
+    cursor: pointer;
+  }
+}
+
+/* Responsive: tarjetas más pequeñas en móviles */
+@media (max-width: 720px) {
+  .card {
+    max-width: 48%;
+  }
+}
+@media (max-width: 440px) {
+  .card {
+    max-width: 100%;
+  }
+}
+
+/* Helpers: animación suave del "shine" (fallback si no se activa ::after) */
+@keyframes card-shine {
+  0% {
+    left: -120%;
+  }
+  100% {
+    left: 120%;
+  }
 }
