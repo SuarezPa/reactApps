@@ -1,7 +1,7 @@
-import './App.css';
 import Card from './components/Card.jsx';
 import { consultClients } from './services/http-service.js';
 import { useState, useEffect } from 'react';
+import Partners from './components/Partners.jsx';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -35,16 +35,17 @@ function App() {
 
   return (
     <>
-      {/* <h1>Name Cliente.</h1> */}
-      {products.map((product) => (
-        <Card
-          key={product.id}
-          title={product.name}
-          price={product.price}
-          imagen={product.image}
-          description={product.description}
-        />
-      ))}
+      <section className="card__section">
+        {products.map((product) => (
+          <Card
+            key={product.id}
+            title={String(product.name).substring(0, 15).toUpperCase()}
+            price={product.price}
+            imagen={product.image}
+            description={product.description}
+          />
+        ))}
+      </section>
     </>
   );
 }

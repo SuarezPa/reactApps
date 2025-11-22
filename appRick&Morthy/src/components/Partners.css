@@ -1,0 +1,84 @@
+/* Contenedor general */
+.partners {
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #f7fbff 0%, #eef6ff 100%);
+  color: #0b2545;
+  border-radius: 12px;
+  margin: 1rem;
+  box-shadow: 0 6px 18px rgba(11, 37, 69, 0.06);
+}
+
+/* Título */
+.partners__title {
+  text-align: center;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+/* Lista con Flexbox: centrado, envolvente y con gaps */
+.partners__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* crucial para saltar al siguiente renglón */
+  padding: 0.5rem;
+}
+
+/* Cada tarjeta de partner */
+.partners__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 130px;
+  max-width: 180px;
+  background: white;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 6px 14px rgba(11, 37, 69, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  cursor: default;
+}
+
+/* efecto hover */
+.partners__item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(11, 37, 69, 0.12);
+}
+
+/* Logo / placeholder circular */
+.partners__logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #0b6cf0 0%, #4bc0ff 100%);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* Nombre del partner */
+.partners__name {
+  font-size: 0.95rem;
+  color: #0b2545;
+  text-align: center;
+}
+
+/* Responsive: en móviles tarjetas ocupan más ancho y saltan filas */
+@media (max-width: 720px) {
+  .partners__item {
+    min-width: 45%;
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 440px) {
+  .partners__item {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
