@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+.title_class {
+  text-align: center;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 20px; /* espacio interior para que se vea el contenido sobre la imagen */
+  color: aliceblue; /* color de texto para buen contraste sobre la imagen */
+}
+
+.title_class h1 {
+  font-family: 'Bangers', 'Trebuchet MS', sans-serif;
+  font-size: 3rem;
+  color: aliceblue;
+  border-style: solid;
+  border-radius: 18px;
+  -webkit-background-clip: padding-box;
+  display: inline-block; /* ajusta al contenido; usa width:100% si quieres todo el ancho */
+  padding: 10px 18px; /* espacio dentro del borde */
+  background-clip: padding-box; /* evita que el fondo se pinte bajo el borde */
+  border-color: aliceblue;
+  /* background-color: var(--primary-letter-color); */
+}
+
+.message_class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family:
+    'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+    sans-serif;
+  margin: 10px;
+  /* padding: 20px; */
+}
+
+.message_class p {
+  padding: 20px;
+  background-color: cadetblue;
+  border-radius: 8px;
+  margin: 18px;
+  color: aliceblue;
+  border: 2px solid aliceblue;
+}

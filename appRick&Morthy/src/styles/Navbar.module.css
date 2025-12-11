@@ -1,39 +1,59 @@
-/* ...existing code... */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 .header {
-  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  padding: 1rem;
   background-color: var(--primary-color);
-  padding: 0.5rem 1rem;
-  box-sizing: border-box;
+  /* color: #fff; */
 }
 
-/* header interno: contenedor flexible y responsivo */
-header {
+.header h1 {
+  font-family: 'Bangers', 'Trebuchet MS', sans-serif;
+  font-size: 3rem;
+  margin: 0;
+  font-family: monospace;
+  color: var(--accent-color);
+}
+
+.header ul {
+  color: blanchedalmond;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  gap: 2rem;
+  /*flex: 1 1 auto; puede crecer y encogerse */
+  justify-content: flex-end;
+  margin: 0; /* quitar márgenes que rompen la alineación */
+  padding: 0;
+  /* background-color: #ff6b6b; */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* logo se mantiene su tamaño y no crece */
+.navActive {
+  color: #ff6b6b;
+}
+
+.navInactive {
+  color: #000;
+}
+
+a:hover {
+  color: #aaa;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .logo-section {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   flex: 0 0 auto; /* no ocupa espacio extra */
 }
-
-/* logo: tamaño relativo para ser responsivo */
-/* .button-menu > figure img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  display: flex;
-  align-items: flex-end;
-  border-radius: 50%;
-} */
 
 /* título dentro del logo */
 .logo-section > h1 {

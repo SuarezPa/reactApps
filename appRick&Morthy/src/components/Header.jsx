@@ -1,43 +1,53 @@
-import './Header.css';
-import '../assets/menu_1000dp_000000_FILL0_wght400_GRAD0_opsz48.svg';
+import { NavLink } from 'react-router';
+import styles from '../styles/Navbar.module.css';
 
-function Header(props) {
-  const { title } = props;
+function Header() {
   return (
-    <div className="header">
-      <header>
-        <div className="logo-section">
-          {/* <img src="../../public/vite.svg" alt=".logo MorthyApp" /> */}
-          <h1>Rick&MorthyApp_</h1>
-        </div>
-        <div className="menu-section">
-          <nav className="navigation">
-            <ul>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Feature</a>
-              </li>
-              <li>
-                <a href="#">Pricing</a>
-              </li>
-              <li>
-                <a href="#">Company</a>
-              </li>
-            </ul>
-          </nav>
-          <div className="button-menu">
-            {/* <figure>
-              <img
-                src="https://rickandmortyapi.com/api/character/avatar/19.jpeg"
-                alt="menu.svg"
-              />
-            </figure> */}
-          </div>
-        </div>
-      </header>
-    </div>
+    <nav className={styles.header}>
+      <div className="logo-section">
+        <h1>Rick&MorthyApp_</h1>
+      </div>
+      <div className="menu-section">
+        <nav className="navigation">
+          <ul>
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? styles.navActive : styles.navInactive)}
+              >
+                Home
+              </NavLink>
+              {/* <a href="#"></a> */}
+            </li>
+            <li>
+              <NavLink
+                to="/characters"
+                className={({ isActive }) => (isActive ? styles.navActive : styles.navInactive)}
+              >
+                Characters
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/chapters"
+                className={({ isActive }) => (isActive ? styles.navActive : styles.navInactive)}
+              >
+                Chapters
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/opinion"
+                className={({ isActive }) => (isActive ? styles.navActive : styles.navInactive)}
+              >
+                Your opinion
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <div className="button-menu"></div>
+      </div>
+    </nav>
   );
 }
 
