@@ -1,4 +1,4 @@
-import './Partners.css';
+import '../styles/Partners.css';
 
 function Partners(props) {
   const partners = ['AWS', 'Slack', 'Dropbox', 'Shopify'];
